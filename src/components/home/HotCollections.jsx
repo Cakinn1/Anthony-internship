@@ -7,6 +7,9 @@ import "../../css/styles/style.css";
 import Slider from "react-slick";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
+
+// git hub test <===
+
 const HotCollections = () => {
   const [posts, nftPost] = useState([]);
   const [loading, setLoading] = useState(true);
