@@ -9,7 +9,12 @@ const Countdown = ({ expiryDate }) => {
 
   useEffect(() => {
     const countDownInterval = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining);
+      const newTimeRemaining = calculateTimeRemaining();
+      setTimeRemaining(newTimeRemaining);
+
+      if (newTimeRemaining <= 0) {
+        clearInterval(countDownInterval);
+      }
     }, 1000);
 
     return () => {
@@ -17,15 +22,17 @@ const Countdown = ({ expiryDate }) => {
     };
   }, [expiryDate]);
 
-  const secondsRemaining = Math.floor(timeRemaining / 1000) % 60;
-  const minutesRemaining = Math.floor(timeRemaining / 1000 / 60) % 60;
-  const hoursRemaining = Math.floor(timeRemaining / 1000 / 60 / 60);
+  const secondsRemaining = Math.max(Math.floor(timeRemaining / 1000) % 60, 0);
+  const minutesRemaining = Math.max(
+    Math.floor(timeRemaining / 1000 / 60) % 60,
+    0
+  );
+  const hoursRemaining = Math.max(
+    Math.floor(timeRemaining / 1000 / 60 / 60),
+    0
+  );
 
-  if (
-    secondsRemaining === 0 &&
-    hoursRemaining === 0 &&
-    minutesRemaining === 0
-  ) {
+  if (timeRemaining <= 0) {
     return (
       <div className="de_countdown" style={{ borderColor: "#8364e2" }}>
         EXPIRED
