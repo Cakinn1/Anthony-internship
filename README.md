@@ -4,10 +4,7 @@
 
 Welcome to Ultraverse, a blockchain marketplace application.
 
-You can find the live, hosted version here → [Ultraverse Live](https://anthony-internship.vercel.app/)
-
-This project was my internship project, During this internship i learnt alot about creating detailed pull request,
-read documentation & explain why i programmed a feature. I created all functionality with technologies below.
+You can find the live, hosted version here → [Ultraverse Live](https://nft-markplace.vercel.app/)
 
 ## Built With
 
